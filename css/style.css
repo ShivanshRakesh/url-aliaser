@@ -1,0 +1,38 @@
+body {
+    background-color: rgba(100, 180, 255, 0.9);
+}
+
+.jumbotron {
+    background-color: white;
+    font-family: 'Encode Sans';
+}
+
+h1 {
+    font-family: 'Encode Sans Bold';
+}
+
+th, td{
+    text-align: center;
+}
+
+#slider{
+    box-sizing: border-box;
+    height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 5px;
+    transition-duration: 0.5s;
+}
+
+/*--FONTS--*/
+
+@font-face {
+    font-family: "Encode Sans";
+    src: url("../fonts/Encode_Sans/EncodeSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Encode Sans Bold";
+    src: url("../fonts/Encode_Sans/EncodeSans-SemiBold.ttf");
+}
