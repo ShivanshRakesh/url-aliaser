@@ -1,0 +1,10 @@
+{
+    "manifest_version": 2,
+    "name": "URL Aliaser",
+    "version": "1.0 beta",
+    "author": "Shivansh Rakesh",
+    
+    "default_locale": "en",
+    "description": "Give alias to frequently visited or long URLs.",
+    "options-page": "options_pg.html"
+}
