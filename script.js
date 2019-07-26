@@ -39,9 +39,11 @@ document.addEventListener("click", function () {
             var url_obj = /^(http[s]?:\/\/)?(.*)/.exec(urls[numEntries].value);
             var entry = ["https://", url_obj[2]];
             var url = entry.join('');
-            aliasList[aliases[numEntries].value] = url;
+            aliasList[aliases[numEntries].value.toLowerCase()] = url.toLowerCase();
             aliases[numEntries].readOnly = true;
+            aliases[numEntries].value = aliases[numEntries].value.toLowerCase();
             urls[numEntries].readOnly = true;
+            urls[numEntries].value = urls[numEntries].value.toLowerCase();
             actionCell.innerHTML = '<button id="del-entry" class="btn btn-light del-entry" title="Delete" type="button"><img src="trashcan.svg"></button>';
             numEntries += 1;
             chrome.storage.local.set({ 'entryList': aliasList });
