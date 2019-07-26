@@ -8,11 +8,6 @@ document.getElementById("slide-btn").addEventListener("click", function () {
 var aliasList = new Object();
 var numEntries = 0;
 
-// NOTE:
-// - CHECK FOR REPEATED ALIAS ENTRIES ++ DONE!!
-// - STORE AND UPDATE IN CHROME MEMORY
-// - ADD HELP PAGE
-
 document.addEventListener("click", function () {
     document.getElementById("add-entry").addEventListener("click", function (e) {
         var element = this;
@@ -36,7 +31,6 @@ document.addEventListener("click", function () {
         }
     });
 
-    // UPDATE LIST
     $('.del-entry').click(function (e) {
         var element = this;
         var index = element.parentNode.parentNode.rowIndex - 1;
@@ -60,7 +54,6 @@ function addRow() {
     cell.innerHTML = '<input type="text" class="form-control alias-inp">';
     cell = row.insertCell(-1);
     cell.innerHTML = '<button id="add-entry" class="btn btn-light" type="button" title="Add Entry"><img src = "check.svg" ></button > ';
-    //disp();
 }
 
 function disp() {
