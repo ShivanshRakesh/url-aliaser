@@ -5,8 +5,15 @@
     "author": "Shivansh Rakesh",
     
     "description": "Give alias to frequently visited or long URLs.",
+    "icons": {
+        "128": "icon.png"
+    },
     "options_page": "options_pg.html",
+    "background" : {
+        "persistent": false,
+        "scripts": [ "bg_script.js" ]
+    },
 
-    "permissions": ["storage"],
+    "permissions": ["tabs", "storage"],
     "content_security_policy": "script-src 'self'; object-src 'self'"
 }

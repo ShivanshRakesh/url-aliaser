@@ -20,6 +20,11 @@ $(function () {
         }
         addRow();
     });
+
+    chrome.storage.local.get('numEntries', function (result) {
+        if(result.numEntries)
+            numEntries = result.numEntries;
+    });
 });
 
 document.addEventListener("click", function () {
@@ -31,10 +36,14 @@ document.addEventListener("click", function () {
         var rows = document.getElementsByTagName("td");
         var actionCell = rows[numEntries * 3 + 2];
         if (aliasList[aliases[numEntries].value] == null || aliasList[aliases[numEntries].value] == undefined) {
-            aliasList[aliases[numEntries].value] = urls[numEntries].value;
+            var url_obj = /^(http[s]?:\/\/)?(.*)/.exec(urls[numEntries].value);
+            var entry = ["https://", url_obj[2]];
+            var url = entry.join('');
+            aliasList[aliases[numEntries].value] = url;
             actionCell.innerHTML = '<button id="del-entry" class="btn btn-light del-entry" title="Delete" type="button"><img src="trashcan.svg"></button>';
             numEntries += 1;
             chrome.storage.local.set({ 'entryList': aliasList });
+            chrome.storage.local.set({ 'numEntries': numEntries });
             addRow();
         }
         else {
@@ -44,7 +53,7 @@ document.addEventListener("click", function () {
             }, 4000);
         }
     });
-
+    
     $('.del-entry').click(function (e) {
         var element = this;
         var index = element.parentNode.parentNode.rowIndex - 1;
@@ -53,7 +62,8 @@ document.addEventListener("click", function () {
         aliasList[aliases[index].value] = null;
         numEntries -= 1;
         chrome.storage.local.set({ 'entryList': aliasList });
-
+        chrome.storage.local.set({ 'numEntries': numEntries });
+        
         // UPDATE TABLE
         var parent = element.parentNode.parentNode;
         parent.parentNode.removeChild(parent);
