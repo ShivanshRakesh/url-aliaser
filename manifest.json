@@ -4,9 +4,9 @@
     "version": "1.0",
     "author": "Shivansh Rakesh",
     
-    "default_locale": "en",
     "description": "Give alias to frequently visited or long URLs.",
-    "options-page": "options_pg.html",
+    "options_page": "options_pg.html",
 
-    "permissions": ["storage"]
+    "permissions": ["storage"],
+    "content_security_policy": "script-src 'self'; object-src 'self'"
 }

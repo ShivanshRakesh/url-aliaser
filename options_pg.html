@@ -8,6 +8,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="jquery.js"></script>
     <title>URL Aliaser</title>
 </head>
 
@@ -18,11 +19,11 @@
             <p class="lead">&nbsp;Give alias to frequently visited or long URLs.</p>
             <hr class="my-4">
             <p></p>
-            <a id="slide-btn" class="btn btn-primary btn-lg" href="#" role="button">Add Aliases</a>
+            <button id="slide-btn" class="btn btn-primary btn-lg">Add Aliases</a>
         </div>
 
         <div id="slider" class="container shadow-lg">
-            <h1 class="display-5 mt-4 mx-4">Aliases</h1>
+            <h1 id="heading" class="display-5 mt-4 mx-4">Aliases</h1>
             <table class="table mx-auto my-4 w-75">
                 <thead class="thead-light">
                     <tr>
@@ -35,7 +36,7 @@
                     <tr>
                         <td><input type="text" class="form-control url-inp"></td>
                         <td><input type="text" class="form-control alias-inp"></td>
-                        <td> <button class="btn btn-light" type="button" title="Add Entry" onclick="addEntry(this)"><img
+                        <td> <button id="add-entry" class="btn btn-light" type="button" title="Add Entry"><img
                                     src="check.svg"></button></td>
                     </tr>
                 </tbody>
