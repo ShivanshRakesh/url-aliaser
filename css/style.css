@@ -35,6 +35,25 @@ th, td{
     transition-duration: 0.5s;
 }
 
+#footer{
+    background-color: white;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+#footer .heart{
+    color: red;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+#footer p{
+    padding: 8px 10px 5px;
+    text-align: right;
+    font-weight: bolder;
+    font-family: 'Encode Sans';
+}
+
 /*--FONTS--*/
 
 @font-face {
