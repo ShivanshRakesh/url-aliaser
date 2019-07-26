@@ -40,6 +40,8 @@ document.addEventListener("click", function () {
             var entry = ["https://", url_obj[2]];
             var url = entry.join('');
             aliasList[aliases[numEntries].value] = url;
+            aliases[numEntries].readOnly = true;
+            urls[numEntries].readOnly = true;
             actionCell.innerHTML = '<button id="del-entry" class="btn btn-light del-entry" title="Delete" type="button"><img src="trashcan.svg"></button>';
             numEntries += 1;
             chrome.storage.local.set({ 'entryList': aliasList });
