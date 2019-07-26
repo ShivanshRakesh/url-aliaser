@@ -3,7 +3,7 @@ chrome.tabs.onUpdated.addListener(
         var url_with_https = changeInfo.url;
         var url_obj = /^http[s]?:\/\/(.+)/.exec(url_with_https);
         if (url_obj) {
-            var alias = url_obj[1].split('\/\/');
+            var alias = url_obj[1].split('\/');
             if (alias != null && alias.length > 1) {
                 // console.log(alias[0]);
                 chrome.storage.local.get('entryList', function (result) {
