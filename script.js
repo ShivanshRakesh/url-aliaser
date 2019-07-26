@@ -8,6 +8,20 @@ document.getElementById("slide-btn").addEventListener("click", function () {
 var aliasList = new Object();
 var numEntries = 0;
 
+$(function () {
+    chrome.storage.local.get('entryList', function (result) {
+        if (result.entryList != null && result.entryList != undefined) {
+            for (key in result.entryList) {
+                if (result.entryList[key] != null && result.entryList[key] != undefined) {
+                    addRow(key, result.entryList[key]);
+                    aliasList[key] = result.entryList[key];
+                }
+            }
+        }
+        addRow();
+    });
+});
+
 document.addEventListener("click", function () {
     document.getElementById("add-entry").addEventListener("click", function (e) {
         var element = this;
@@ -20,12 +34,12 @@ document.addEventListener("click", function () {
             aliasList[aliases[numEntries].value] = urls[numEntries].value;
             actionCell.innerHTML = '<button id="del-entry" class="btn btn-light del-entry" title="Delete" type="button"><img src="trashcan.svg"></button>';
             numEntries += 1;
-            chrome.storage.local.set({ entries: aliasList });
+            chrome.storage.local.set({ 'entryList': aliasList });
             addRow();
         }
         else {
             document.getElementById("heading").innerHTML = "<span style='color: red'>Alias already exists!</span>";
-            setTimeout(function(){
+            setTimeout(function () {
                 document.getElementById("heading").innerHTML = "<span style='color: black'>Aliases</span>";
             }, 4000);
         }
@@ -38,7 +52,7 @@ document.addEventListener("click", function () {
         var urls = document.getElementsByClassName("url-inp");
         aliasList[aliases[index].value] = null;
         numEntries -= 1;
-        chrome.storage.local.set({ entries: aliasList });
+        chrome.storage.local.set({ 'entryList': aliasList });
 
         // UPDATE TABLE
         var parent = element.parentNode.parentNode;
@@ -46,18 +60,23 @@ document.addEventListener("click", function () {
     });
 });
 
-function addRow() {
+function addRow(key = "", url = "") {
     let row = document.getElementById("entries").insertRow(-1);
     let cell = row.insertCell(-1);
-    cell.innerHTML = '<input type="text" class="form-control url-inp">';
+    cell.innerHTML = '<input type="text" class="form-control url-inp" value = "' + url + '">';
     cell = row.insertCell(-1);
-    cell.innerHTML = '<input type="text" class="form-control alias-inp">';
+    cell.innerHTML = '<input type="text" class="form-control alias-inp" value ="' + key + '">';
     cell = row.insertCell(-1);
-    cell.innerHTML = '<button id="add-entry" class="btn btn-light" type="button" title="Add Entry"><img src = "check.svg" ></button > ';
+    if (key == "")
+        cell.innerHTML = '<button id="add-entry" class="btn btn-light" type="button" title="Add Entry"><img src = "check.svg" ></button>';
+    else
+        cell.innerHTML = '<button id="del-entry" class="btn btn-light del-entry" title="Delete" type="button"><img src="trashcan.svg"></button>';
 }
 
 function disp() {
-    chrome.storage.local.get(['entries'], function (result) {
-        console.log('Value currently is ' + result.entries);
+    chrome.storage.local.get(['entryList'], function (result) {
+        for (key in result.entryList) {
+            console.log('Value currently is ' + key + ":" + result.entryList[key]);
+        }
     });
 }
