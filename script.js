@@ -13,7 +13,7 @@ $(function () {
         if (result.entryList != null && result.entryList != undefined) {
             for (key in result.entryList) {
                 if (result.entryList[key] != null && result.entryList[key] != undefined) {
-                    addRow(key, result.entryList[key]);
+                    addRow(key, result.entryList[key], true);
                     aliasList[key] = result.entryList[key];
                 }
             }
@@ -22,7 +22,7 @@ $(function () {
     });
 
     chrome.storage.local.get('numEntries', function (result) {
-        if(result.numEntries)
+        if (result.numEntries)
             numEntries = result.numEntries;
     });
 });
@@ -40,9 +40,9 @@ document.addEventListener("click", function () {
             var entry = ["https://", url_obj[2]];
             var url = entry.join('');
             aliasList[aliases[numEntries].value.toLowerCase()] = url.toLowerCase();
-            aliases[numEntries].readOnly = true;
+            aliases[numEntries].setAttribute("readonly", "true");
             aliases[numEntries].value = aliases[numEntries].value.toLowerCase();
-            urls[numEntries].readOnly = true;
+            urls[numEntries].setAttribute("readonly", "true");
             urls[numEntries].value = urls[numEntries].value.toLowerCase();
             actionCell.innerHTML = '<button id="del-entry" class="btn btn-light del-entry" title="Delete" type="button"><img src="trashcan.svg"></button>';
             numEntries += 1;
@@ -57,7 +57,7 @@ document.addEventListener("click", function () {
             }, 4000);
         }
     });
-    
+
     $('.del-entry').click(function (e) {
         var element = this;
         var index = element.parentNode.parentNode.rowIndex - 1;
@@ -67,20 +67,28 @@ document.addEventListener("click", function () {
         numEntries -= 1;
         chrome.storage.local.set({ 'entryList': aliasList });
         chrome.storage.local.set({ 'numEntries': numEntries });
-        
+
         // UPDATE TABLE
         var parent = element.parentNode.parentNode;
         parent.parentNode.removeChild(parent);
     });
 });
 
-function addRow(key = "", url = "") {
+function addRow(key = "", url = "", readonly = false) {
     let row = document.getElementById("entries").insertRow(-1);
     let cell = row.insertCell(-1);
-    cell.innerHTML = '<input type="text" class="form-control url-inp" value = "' + url + '">';
-    cell = row.insertCell(-1);
-    cell.innerHTML = '<input type="text" class="form-control alias-inp" value ="' + key + '">';
-    cell = row.insertCell(-1);
+    if (readonly) {
+        cell.innerHTML = '<input type="text" class="form-control url-inp" readonly value = "' + url + '">';
+        cell = row.insertCell(-1);
+        cell.innerHTML = '<input type="text" class="form-control alias-inp" readonly value ="' + key + '">';
+        cell = row.insertCell(-1);
+    }
+    else {
+        cell.innerHTML = '<input type="text" class="form-control url-inp" value = "' + url + '">';
+        cell = row.insertCell(-1);
+        cell.innerHTML = '<input type="text" class="form-control alias-inp" value ="' + key + '">';
+        cell = row.insertCell(-1);
+    }
     if (key == "")
         cell.innerHTML = '<button id="add-entry" class="btn btn-light" type="button" title="Add Entry"><img src = "check.svg" ></button>';
     else
