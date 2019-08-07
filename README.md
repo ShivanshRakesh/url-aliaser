@@ -1,6 +1,6 @@
 # URL Aliaser
 
-A Chrome Extension which gives aliases to frequently visited (or long) website URLs.
+A Chrome Extension which gives alias to website URLs.
 
 [![](https://developer.chrome.com/webstore/images/ChromeWebStore_Badge_v2_340x96.png)](https://chrome.google.com/webstore/detail/url-aliaser/dpmjkbfpciagadmabadpflnhlkhcaaii)
 
@@ -10,7 +10,6 @@ After adding the extension to Google Chrome, navigate to 'Options' after clickin
 
 ## Features
 
-* [PRIMARY FEATURE] Give alias to URLs.
 * Support for multiple placeholders for easier navigation.
 * Sync with Google Account to use on all signed-in devices.
 
