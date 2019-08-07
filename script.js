@@ -1,5 +1,4 @@
 var slider = document.getElementById("slider");
-
 document.getElementById("slide-btn").addEventListener("click", function () {
     slider.style.height = "auto";
     slider.style.opacity = 1;
@@ -9,7 +8,7 @@ var aliasList = new Object();
 var numEntries = 0;
 
 $(function () {
-    chrome.storage.local.get('entryList', function (result) {
+    chrome.storage.sync.get('entryList', function (result) {
         if (result.entryList != null && result.entryList != undefined) {
             for (key in result.entryList) {
                 if (result.entryList[key] != null && result.entryList[key] != undefined) {
@@ -21,7 +20,7 @@ $(function () {
         addRow();
     });
 
-    chrome.storage.local.get('numEntries', function (result) {
+    chrome.storage.sync.get('numEntries', function (result) {
         if (result.numEntries)
             numEntries = result.numEntries;
     });
@@ -46,8 +45,8 @@ document.addEventListener("click", function () {
             urls[numEntries].value = urls[numEntries].value.toLowerCase();
             actionCell.innerHTML = '<button id="del-entry" class="btn btn-light del-entry" title="Delete" type="button"><img src="trashcan.svg"></button>';
             numEntries += 1;
-            chrome.storage.local.set({ 'entryList': aliasList });
-            chrome.storage.local.set({ 'numEntries': numEntries });
+            chrome.storage.sync.set({ 'entryList': aliasList });
+            chrome.storage.sync.set({ 'numEntries': numEntries });
             addRow();
         }
         else {
@@ -65,8 +64,8 @@ document.addEventListener("click", function () {
         var urls = document.getElementsByClassName("url-inp");
         aliasList[aliases[index].value] = null;
         numEntries -= 1;
-        chrome.storage.local.set({ 'entryList': aliasList });
-        chrome.storage.local.set({ 'numEntries': numEntries });
+        chrome.storage.sync.set({ 'entryList': aliasList });
+        chrome.storage.sync.set({ 'numEntries': numEntries });
 
         // UPDATE TABLE
         var parent = element.parentNode.parentNode;
@@ -96,7 +95,7 @@ function addRow(key = "", url = "", readonly = false) {
 }
 
 function disp() {
-    chrome.storage.local.get(['entryList'], function (result) {
+    chrome.storage.sync.get(['entryList'], function (result) {
         for (key in result.entryList) {
             console.log('Value currently is ' + key + ":" + result.entryList[key]);
         }

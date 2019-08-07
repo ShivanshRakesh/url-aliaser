@@ -1,20 +1,35 @@
 chrome.tabs.onUpdated.addListener(
     function (tabId, changeInfo, tab) {
         var placeholderCnt = 0;
+        
+        // FETCH NEW URL
         var url_with_https = changeInfo.url;
         var url_obj = /^http[s]?:\/\/(.+)/.exec(url_with_https);
+
         if (url_obj) {
+            
+            // DIVIDE THE URL INTO PARTS TO CHECK FOR ANY PLACEHOLDERS
             var url_divs = url_obj[1].split('\/');
             if (url_divs != null && url_divs.length > 1) {
                 let alias = url_divs[0];
                 var divIndx = 1;
-                chrome.storage.local.get('entryList', function (result) {
+
+                // GET ALIAS ENTRIES FROM CHROME STORAGE
+                chrome.storage.sync.get('entryList', function (result) {
+                
+                    // PROCEED IF AN ALIAS MATCHES THE FIRST DIVISION OF THE URL
                     if (result.entryList[alias] != null && result.entryList[alias] != undefined) {
                         let urlToRedir = '';
+                
+                        // GET THE URL REGISTERED WITH THE ALIAS
                         url_stored = result.entryList[alias];
+                
+                        // SPLIT THE REGISTERED URL TO CHECK FOR ANY PLACEHOLDERS (%%)
                         var splits = url_stored.split('/');
                         for (i = 0; i < splits.length; i++) {
                             var toJoin = '';
+                
+                            // IF THE PART IS A PLACEHOLDER, REPLACE IT WITH RESPECTIVE DIVISION OF URL ENTERED
                             if (splits[i] == "%%") {
                                 placeholderCnt++;
                                 if (divIndx < url_divs.length)
@@ -25,6 +40,8 @@ chrome.tabs.onUpdated.addListener(
                             urlToRedir = [urlToRedir, '/', toJoin].join('');
                         }
 
+                        // IF NUMBER OF PLACEHOLDER IS NOT EQUAL TO ARGUMENTS PASSED, RAISE AN ERROR
+                        // ELSE, REDIRECT TO GENERATED URL
                         if (placeholderCnt < url_divs.length - 2) {
                             alert("Number of arguments passed exceeds number of placeholders registered!");
                         }
