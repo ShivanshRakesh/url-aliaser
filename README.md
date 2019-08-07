@@ -8,6 +8,13 @@ Bored of typing those long URLs again and again? Get rid of it with this extensi
 
 After adding the extension to Google Chrome, navigate to 'Options' after clicking the URL Aliaser icon right near the address bar for the usage instructions and managing aliases.
 
+## Features
+
+* [PRIMARY FEATURE] Give alias to URLs.
+* Support for multiple placeholders for easier navigation.
+* Sync with Google Account to use on all signed-in devices.
+* Clean and easy to use interface.
+
 ## Usasge
 
 ![](https://github.com/ShivanshRakesh/url-aliaser/blob/master/usage_instructions.png)
