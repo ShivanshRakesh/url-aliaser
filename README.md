@@ -13,7 +13,6 @@ After adding the extension to Google Chrome, navigate to 'Options' after clickin
 * [PRIMARY FEATURE] Give alias to URLs.
 * Support for multiple placeholders for easier navigation.
 * Sync with Google Account to use on all signed-in devices.
-* Clean and easy to use interface.
 
 ## Usasge
 
