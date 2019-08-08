@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "URL Aliaser",
-    "version": "1.0.5",
+    "version": "1.0.7",
     "author": "Shivansh Rakesh",
     
     "description": "Give alias to frequently visited URLs.",
