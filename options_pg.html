@@ -32,16 +32,28 @@
                 <ul class="list-group my-4 w-80">
                     <li class="list-group-item"><strong><span
                                 style="font-size: 1.2em; font-weight: bold;">PLACEHOLDERS:</span></strong></l1>
+
                     <li class="list-group-item">In the url entry, use <strong>DOUBLE PERCENTAGE SIGN (%%)</strong>
                         to specify a placeholder.</li>
+
                     <li class="list-group-item">To use a placeholder, type the substitutions for respective placeholders
                         separated by <strong>FORWARD SLASH (/)</strong>.</li>
+
                     <li class="list-group-item">Do append a <strong>FORWARD SLASH (/)</strong> to
                         whatever entered in the address bar.</li>
-                    <li class="list-group-item"><strong>Example:</strong>&nbsp;&nbsp;If the alias for <span
-                            class="highlight">xyz/%%/a1/%%/a2</span> is set as <span class="highlight">test</span>,
-                        then in the address bar type <span class="highlight">test/plc1/plc2/</span> to
-                        redirect to <span class="highlight">xyz/plc1/a1/plc2/a2</span>.
+
+                    <li class="list-group-item"><strong>Example 1:</strong>&nbsp;&nbsp;To search for something on Google,
+                        one can set alias <span class="highlight">g</span> for <span
+                            class="highlight">google.com/search?q=%%</span>, then in the address bar type <span
+                            class="highlight">g/cars/</span> to search for <strong>cars</strong>. Here <span
+                            class="highlight">%%</span> is the placeholder and <span class="highlight">cars</span>
+                        typed in the address bar is the argument passed.</li>
+
+                    <li class="list-group-item"><strong>Example 2:</strong>&nbsp;&nbsp;<strong>Multiple Placeholders:</strong> If the
+                        alias for <span class="highlight">some_url/%%/bla_bla/%%/bla_bla</span> is set as <span
+                            class="highlight">test</span>, then in the address bar type <span
+                            class="highlight">test/arg1/arg2/</span> to redirect to <span
+                            class="highlight">https://some_url/arg1/bla_bla/arg2/bla_bla</span>.
                     </li>
                 </ul>
                 <hr class="my-4">
