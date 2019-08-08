@@ -20,15 +20,13 @@ chrome.tabs.onUpdated.addListener(
                     // PROCEED IF AN ALIAS MATCHES THE FIRST DIVISION OF THE URL
                     if (result.entryList[alias] != null && result.entryList[alias] != undefined) {
                         let urlToRedir = '';
-
                         // GET THE URL REGISTERED WITH THE ALIAS
-                        url_stored = result.entryList[alias];
-
+                        var url_obj = /^(http[s]?:\/\/)?(.*)/.exec(result.entryList[alias]);
+                        url_stored = url_obj[2];
                         // SPLIT THE REGISTERED URL TO CHECK FOR ANY PLACEHOLDERS (%%)
-                        var splits = url_stored.split('/');
+                        var splits = url_stored.split('\/');
                         for (i = 0; i < splits.length; i++) {
                             var toJoin = '';
-
                             // IF THE PART IS A PLACEHOLDER, REPLACE IT WITH RESPECTIVE DIVISION OF URL ENTERED
                             if (splits[i] == "%%") {
                                 placeholderCnt++;
@@ -37,7 +35,7 @@ chrome.tabs.onUpdated.addListener(
                             }
                             else
                                 toJoin = splits[i];
-                            urlToRedir = [urlToRedir, '/', toJoin].join('');
+                            urlToRedir = [urlToRedir, toJoin].join('\/');
                         }
 
                         // IF NUMBER OF PLACEHOLDER IS NOT EQUAL TO ARGUMENTS PASSED, RAISE AN ERROR
@@ -49,8 +47,9 @@ chrome.tabs.onUpdated.addListener(
                             alert("Number of placeholders registered exceeds number of arguments passed!");
                         }
                         else {
-                            chrome.tabs.update(tabId, { url: urlToRedir });
+                            urlToRedir = ["https:/", urlToRedir].join('');
                             console.log("Redirecting to: " + urlToRedir);
+                            chrome.tabs.update(tabId, { url: urlToRedir });
                         }
                     }
                 });
