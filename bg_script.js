@@ -61,7 +61,13 @@ chrome.tabs.onUpdated.addListener(
 // NOTIFY ON UPDATE
 chrome.runtime.onInstalled.addListener(function (details) {
     if (details.reason == "update") {
-        var manifest = chrome.runtime.getManifest();
-        alert("URL Aliaser got updated to version " + manifest.version + "!");
+        let message = `Hurray! URL Aliaser got updated to version ${chrome.runtime.getManifest().version}!`;
+        var options = {
+            type: 'basic',
+            title: "URL Aliaser got updated!",
+            message: message,
+            iconUrl: 'icon.png'
+        };
+        chrome.notifications.create(options);
     }
 });
