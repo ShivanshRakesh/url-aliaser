@@ -27,7 +27,7 @@ After adding the extension to Google Chrome, navigate to 'Options' after clickin
 
 ## Authors
 
-* **Shivansh Rakesh** - *Initial work* - [ShivanshRakesh](https://github.com/ShivanshRakesh)
+* [**Shivansh Rakesh**](https://github.com/ShivanshRakesh)
 
 ## Contributing
 Pull requests are welcomed. For major changes, please open an issue first to discuss what you would like to change.
