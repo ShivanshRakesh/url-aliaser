@@ -25,9 +25,9 @@ After adding the extension to Google Chrome, navigate to 'Options' after clickin
 * Javascript
 * HTML and CSS
 
-## Authors
+## Author
 
-* [**Shivansh Rakesh**](https://github.com/ShivanshRakesh)
+* [**ShivanshRakesh**](https://github.com/ShivanshRakesh)
 
 ## Contributing
 Pull requests are welcomed. For major changes, please open an issue first to discuss what you would like to change.
