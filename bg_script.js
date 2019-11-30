@@ -23,20 +23,22 @@ chrome.tabs.onUpdated.addListener(
                         // GET THE URL REGISTERED WITH THE ALIAS
                         var url_obj = /^(http[s]?:\/\/)?(.*)/.exec(result.entryList[alias]);
                         url_stored = url_obj[2];
+
                         // SPLIT THE REGISTERED URL TO CHECK FOR ANY PLACEHOLDERS (%%)
-                        var splits = url_stored.split('\/');
-                        for (i = 0; i < splits.length; i++) {
-                            var toJoin = '';
-                            // IF THE PART IS A PLACEHOLDER, REPLACE IT WITH RESPECTIVE DIVISION OF URL ENTERED
-                            if (splits[i] == "%%") {
-                                placeholderCnt++;
+                        // IF THE PART IS A PLACEHOLDER, REPLACE IT WITH RESPECTIVE DIVISION OF URL ENTERED
+                        if (url_stored.includes('%%')) {
+                            var splits = url_stored.split('%%');
+                            placeholderCnt = splits.length - 1;
+                            for (i = 0; i < splits.length; i++) {
+                                var toJoin = '';
                                 if (divIndx < url_divs.length)
-                                    toJoin = url_divs[divIndx++];
+                                    toJoin = [splits[i], url_divs[divIndx++]].join('');
+                                else
+                                    toJoin = splits[i];
+                                urlToRedir = [urlToRedir, toJoin].join('');
                             }
-                            else
-                                toJoin = splits[i];
-                            urlToRedir = [urlToRedir, toJoin].join('\/');
                         }
+                        
 
                         // IF NUMBER OF PLACEHOLDER IS NOT EQUAL TO ARGUMENTS PASSED, RAISE AN ERROR
                         // ELSE, REDIRECT TO GENERATED URL
