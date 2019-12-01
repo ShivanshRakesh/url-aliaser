@@ -38,6 +38,9 @@ chrome.tabs.onUpdated.addListener(
                                 urlToRedir = [urlToRedir, toJoin].join('');
                             }
                         }
+                        else {
+                            urlToRedir = url_stored;
+                        }
                         
 
                         // IF NUMBER OF PLACEHOLDER IS NOT EQUAL TO ARGUMENTS PASSED, RAISE AN ERROR
