@@ -11,7 +11,7 @@
     "options_page": "options_pg.html",
     "background" : {
         "persistent": false,
-        "scripts": [ "bg_script.js" ]
+        "scripts": [ "js/bg_script.js" ]
     },
 
     "permissions": ["tabs", "storage", "notifications"],
