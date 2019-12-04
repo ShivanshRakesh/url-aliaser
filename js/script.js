@@ -43,7 +43,7 @@ document.addEventListener("click", function () {
             aliases[numEntries].value = aliases[numEntries].value.toLowerCase();
             urls[numEntries].setAttribute("readonly", "true");
             urls[numEntries].value = urls[numEntries].value.toLowerCase();
-            actionCell.innerHTML = '<button id="del-entry" class="btn btn-light del-entry" title="Delete" type="button"><img src="trashcan.svg"></button>';
+            actionCell.innerHTML = '<button id="del-entry" class="btn btn-light del-entry" title="Delete" type="button"><img src="images/trashcan.svg"></button>';
             numEntries += 1;
             chrome.storage.sync.set({ 'entryList': aliasList });
             chrome.storage.sync.set({ 'numEntries': numEntries });
@@ -89,9 +89,9 @@ function addRow(key = "", url = "", readonly = false) {
         cell = row.insertCell(-1);
     }
     if (key == "")
-        cell.innerHTML = '<button id="add-entry" class="btn btn-light" type="button" title="Add Entry"><img src = "check.svg" ></button>';
+        cell.innerHTML = '<button id="add-entry" class="btn btn-light" type="button" title="Add Entry"><img src = "images/check.svg" ></button>';
     else
-        cell.innerHTML = '<button id="del-entry" class="btn btn-light del-entry" title="Delete" type="button"><img src="trashcan.svg"></button>';
+        cell.innerHTML = '<button id="del-entry" class="btn btn-light del-entry" title="Delete" type="button"><img src="images/trashcan.svg"></button>';
 }
 
 function disp() {
