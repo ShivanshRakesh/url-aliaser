@@ -71,7 +71,7 @@ chrome.runtime.onInstalled.addListener(function (details) {
             type: 'basic',
             title: "URL Aliaser got updated!",
             message: message,
-            iconUrl: 'icon.png'
+            iconUrl: 'images/icon.png'
         };
         chrome.notifications.create(options);
     }

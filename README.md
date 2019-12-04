@@ -15,10 +15,10 @@ After adding the extension to Google Chrome, navigate to 'Options' after clickin
 
 ## Usasge
 
-![](https://github.com/ShivanshRakesh/url-aliaser/blob/master/usage_instructions.png)
+![](https://github.com/ShivanshRakesh/url-aliaser/blob/master/images/usage_instructions.png)
 
 ## Screenshot
-![](https://github.com/ShivanshRakesh/url-aliaser/blob/master/Screenshot.png)
+![](https://github.com/ShivanshRakesh/url-aliaser/blob/master/images/Screenshot.png)
 ## Built With
 
 * [jQuery](https://api.jquery.com/)
