@@ -1,9 +1,9 @@
 chrome.tabs.onUpdated.addListener(
-    function (tabId, changeInfo, tab) {
+    function(tabId, changeInfo, tab) {
         var placeholderCnt = 0;
 
         // FETCH NEW URL
-        var url_with_https = changeInfo.url;
+        var url_with_https = tab.url;
         var url_obj = /^http[s]?:\/\/(.+)/.exec(url_with_https);
 
         if (url_obj) {
@@ -15,7 +15,7 @@ chrome.tabs.onUpdated.addListener(
                 var divIndx = 1;
 
                 // GET ALIAS ENTRIES FROM CHROME STORAGE
-                chrome.storage.sync.get('entryList', function (result) {
+                chrome.storage.sync.get('entryList', function(result) {
 
                     // PROCEED IF AN ALIAS MATCHES THE FIRST DIVISION OF THE URL
                     if (result.entryList[alias] != null && result.entryList[alias] != undefined) {
@@ -37,21 +37,18 @@ chrome.tabs.onUpdated.addListener(
                                     toJoin = splits[i];
                                 urlToRedir = [urlToRedir, toJoin].join('');
                             }
-                        }
-                        else {
+                        } else {
                             urlToRedir = url_stored;
                         }
-                        
+
 
                         // IF NUMBER OF PLACEHOLDER IS NOT EQUAL TO ARGUMENTS PASSED, RAISE AN ERROR
                         // ELSE, REDIRECT TO GENERATED URL
                         if (placeholderCnt < url_divs.length - 2) {
                             alert("Number of arguments passed exceeds number of placeholders registered!");
-                        }
-                        else if (placeholderCnt > url_divs.length - 2) {
+                        } else if (placeholderCnt > url_divs.length - 2) {
                             alert("Number of placeholders registered exceeds number of arguments passed!");
-                        }
-                        else {
+                        } else {
                             urlToRedir = ["https:/", urlToRedir].join('');
                             console.log("Redirecting to: " + urlToRedir);
                             chrome.tabs.update(tabId, { url: urlToRedir });
@@ -64,7 +61,7 @@ chrome.tabs.onUpdated.addListener(
 );
 
 // NOTIFY ON UPDATE
-chrome.runtime.onInstalled.addListener(function (details) {
+chrome.runtime.onInstalled.addListener(function(details) {
     if (details.reason == "update") {
         let message = `Hurray! URL Aliaser got updated to version ${chrome.runtime.getManifest().version}!`;
         var options = {
