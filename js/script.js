@@ -35,9 +35,9 @@ document.addEventListener("click", function () {
         var rows = document.getElementsByTagName("td");
         var actionCell = rows[numEntries * 3 + 2];
         if (aliasList[aliases[numEntries].value] == null || aliasList[aliases[numEntries].value] == undefined) {
-            var url_obj = /^(http[s]?:\/\/)?(.*)/.exec(urls[numEntries].value);
-            var entry = ["https://", url_obj[2]];
-            var url = entry.join('');
+            var prefix = String(urls[numEntries].value).split('://');
+            var url = (prefix.length == 1) ? ["http://", urls[numEntries].value].join('') : urls[numEntries].value.toString();
+            console.log(url);
             aliasList[aliases[numEntries].value.toLowerCase()] = url.toLowerCase();
             aliases[numEntries].setAttribute("readonly", "true");
             aliases[numEntries].value = aliases[numEntries].value.toLowerCase();

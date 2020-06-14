@@ -21,8 +21,7 @@ chrome.tabs.onUpdated.addListener(
                     if (result.entryList[alias] != null && result.entryList[alias] != undefined) {
                         let urlToRedir = '';
                         // GET THE URL REGISTERED WITH THE ALIAS
-                        var url_obj = /^(http[s]?:\/\/)?(.*)/.exec(result.entryList[alias]);
-                        url_stored = url_obj[2];
+                        url_stored = String(result.entryList[alias]).split('://')[1];
 
                         // SPLIT THE REGISTERED URL TO CHECK FOR ANY PLACEHOLDERS (%%)
                         // IF THE PART IS A PLACEHOLDER, REPLACE IT WITH RESPECTIVE DIVISION OF URL ENTERED
@@ -49,7 +48,7 @@ chrome.tabs.onUpdated.addListener(
                         } else if (placeholderCnt > url_divs.length - 2) {
                             alert("Number of placeholders registered exceeds number of arguments passed!");
                         } else {
-                            urlToRedir = ["https:/", urlToRedir].join('');
+                            urlToRedir = [String(result.entryList[alias]).split('://')[0], '://', urlToRedir].join('');
                             console.log("Redirecting to: " + urlToRedir);
                             chrome.tabs.update(tabId, { url: urlToRedir });
                         }
