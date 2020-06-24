@@ -1,7 +1,25 @@
 var slider = document.getElementById("slider");
 document.getElementById("slide-btn").addEventListener("click", function () {
-    slider.style.height = "auto";
-    slider.style.opacity = 1;
+    if (slider.style.opacity == 0) {
+        slider.style.height = "auto";
+        slider.style.opacity = 1;
+    }
+    else {
+        slider.style.height = "0px";
+        slider.style.opacity = 0;
+    }
+});
+
+var releaseNotes = document.getElementById("release-notes");
+document.getElementById("release-notes-btn").addEventListener("click", function () {
+    if (releaseNotes.style.opacity == 0) {
+        releaseNotes.style.height = "auto";
+        releaseNotes.style.opacity = 1;
+    }
+    else {
+        releaseNotes.style.height = "0px";
+        releaseNotes.style.opacity = 0;
+    }
 });
 
 var aliasList = new Object();
@@ -28,8 +46,6 @@ $(function () {
 
 document.addEventListener("click", function () {
     document.getElementById("add-entry").addEventListener("click", function (e) {
-        var element = this;
-        var index = element.parentNode.parentNode.rowIndex;
         var aliases = document.getElementsByClassName("alias-inp");
         var urls = document.getElementsByClassName("url-inp");
         var rows = document.getElementsByTagName("td");
@@ -37,7 +53,6 @@ document.addEventListener("click", function () {
         if (aliasList[aliases[numEntries].value] == null || aliasList[aliases[numEntries].value] == undefined) {
             var prefix = String(urls[numEntries].value).split('://');
             var url = (prefix.length == 1) ? ["http://", urls[numEntries].value].join('') : urls[numEntries].value.toString();
-            console.log(url);
             aliasList[aliases[numEntries].value.toLowerCase()] = url.toLowerCase();
             aliases[numEntries].setAttribute("readonly", "true");
             aliases[numEntries].value = aliases[numEntries].value.toLowerCase();

@@ -18,50 +18,54 @@
             <h1 class="display-4">URL Aliaser</h1>
             <p class="lead">&nbsp;Give alias to frequently visited or long URLs.</p>
             <hr class="my-4">
-            <h3 class="display-6">Usage</h1>
-                <ul class="list-group my-4 w-80">
-                    <li class="list-group-item">Click on <strong>Manage Aliases</strong> to Add/Remove aliases.</li>
-                    <li class="list-group-item">Click on &nbsp;<img src="images/check.svg">&nbsp; to <strong>ADD</strong> and
-                        &nbsp;<img src="images/trashcan.svg">&nbsp; to <strong>DELETE</strong> an alias entry.</li>
-                    <li class="list-group-item">To use an alias, type a registered alias in the address bar followed by
-                        a <strong>FORWARD SLASH (/)</strong>.</li>
-                    <li class="list-group-item"><strong>Example:</strong>&nbsp;&nbsp;If the alias for <span
-                            class="highlight">www.google.com</span> is set as <span class="highlight">g</span>, then
-                        in the address bar type <span class="highlight">g/</span>.</li>
-                </ul>
-                <ul class="list-group my-4 w-80">
-                    <li class="list-group-item"><strong><span
-                                style="font-size: 1.2em; font-weight: bold;">PLACEHOLDERS:</span></strong></l1>
+            <h3 class="display-6">Usage</h3>
+            <ul class="list-group my-4 w-80">
+                <li class="list-group-item">Click on <strong>Manage Aliases</strong> to Add/Remove aliases.</li>
+                <li class="list-group-item">Click on &nbsp;<img src="images/check.svg">&nbsp; to <strong>ADD</strong>
+                    and
+                    &nbsp;<img src="images/trashcan.svg">&nbsp; to <strong>DELETE</strong> an alias entry.</li>
+                <li class="list-group-item">To use an alias, type a registered alias in the address bar followed by
+                    a <strong>FORWARD SLASH (/)</strong>.</li>
+                <li class="list-group-item"><strong>Example:</strong>&nbsp;&nbsp;If the alias for <span
+                        class="highlight">www.google.com</span> is set as <span class="highlight">g</span>, then
+                    in the address bar type <span class="highlight">g/</span>.</li>
+            </ul>
+            <ul class="list-group my-4 w-80">
+                <li class="list-group-item"><strong><span
+                            style="font-size: 1.2em; font-weight: bold;">PLACEHOLDERS:</span></strong></l1>
 
-                    <li class="list-group-item">In the url entry, use <strong>DOUBLE PERCENTAGE SIGN (%%)</strong>
-                        to specify a placeholder.</li>
+                <li class="list-group-item">In the url entry, use <strong>DOUBLE PERCENTAGE SIGN (%%)</strong>
+                    to specify a placeholder.</li>
 
-                    <li class="list-group-item">To use a placeholder, type the substitutions for respective placeholders
-                        separated by <strong>FORWARD SLASH (/)</strong>.</li>
+                <li class="list-group-item">To use a placeholder, type the substitutions for respective placeholders
+                    separated by <strong>FORWARD SLASH (/)</strong>.</li>
 
-                    <li class="list-group-item">Do append a <strong>FORWARD SLASH (/)</strong> to
-                        whatever entered in the address bar.</li>
+                <li class="list-group-item">Do append a <strong>FORWARD SLASH (/)</strong> to
+                    whatever entered in the address bar.</li>
 
-                    <li class="list-group-item"><strong>Example 1:</strong>&nbsp;&nbsp;To search for something on Google,
-                        one can set alias <span class="highlight">g</span> for <span
-                            class="highlight">google.com/search?q=%%</span>, then in the address bar type <span
-                            class="highlight">g/cars/</span> to search for <strong>cars</strong>. Here <span
-                            class="highlight">%%</span> is the placeholder and <span class="highlight">cars</span>
-                        typed in the address bar is the argument passed.</li>
+                <li class="list-group-item"><strong>Example 1:</strong>&nbsp;&nbsp;To search for something on Google,
+                    one can set alias <span class="highlight">g</span> for <span
+                        class="highlight">google.com/search?q=%%</span>, then in the address bar type <span
+                        class="highlight">g/cars/</span> to search for <strong>cars</strong>. Here <span
+                        class="highlight">%%</span> is the placeholder and <span class="highlight">cars</span>
+                    typed in the address bar is the argument passed.</li>
 
-                    <li class="list-group-item"><strong>Example 2:</strong>&nbsp;&nbsp;<strong>Multiple Placeholders:</strong> If the
-                        alias for <span class="highlight">some_url/%%/bla_bla/%%/bla_bla</span> is set as <span
-                            class="highlight">test</span>, then in the address bar type <span
-                            class="highlight">test/arg1/arg2/</span> to redirect to <span
-                            class="highlight">https://some_url/arg1/bla_bla/arg2/bla_bla</span>.
-                    </li>
-                </ul>
-                <hr class="my-4">
-                <p></p>
-                <a href="#slider"><button id="slide-btn" class="btn btn-primary btn-lg">Manage Aliases</button></a>
+                <li class="list-group-item"><strong>Example 2:</strong>&nbsp;&nbsp;<strong>Multiple
+                        Placeholders:</strong> If the
+                    alias for <span class="highlight">some_url/%%/bla_bla/%%/bla_bla</span> is set as <span
+                        class="highlight">test</span>, then in the address bar type <span
+                        class="highlight">test/arg1/arg2/</span> to redirect to <span
+                        class="highlight">https://some_url/arg1/bla_bla/arg2/bla_bla</span>.
+                </li>
+            </ul>
+            <hr class="my-4">
+            <p></p>
+            <a href="#slider"><button id="slide-btn" class="btn btn-primary btn-lg">Manage Aliases</button></a> <a
+                href="#release-notes" class="mx-3"><button id="release-notes-btn" class="btn btn-warning btn-lg">Release
+                    Notes</button></a>
         </div>
 
-        <div id="slider" class="container shadow-lg">
+        <div id="slider" class="container shadow-lg my-4">
             <h1 id="heading" class="display-5 mt-4 mx-4">Aliases</h1>
             <table class="table mx-auto my-4 w-75">
                 <thead class="thead-light">
@@ -73,6 +77,70 @@
                 </thead>
                 <tbody id="entries"></tbody>
             </table>
+        </div>
+
+        <div id="release-notes" class="container p-0 my-4 shadow-lg">
+            <div class="jumbotron m-0 py-0 px-5" style="background-color: transparent;">
+                <h1 id="heading" class="display-5 mt-4 mb-2">Version History</h1>
+                <p class="lead">&nbsp;Major Releases</p>
+                <hr class="my-4">
+                <div class="px-5">
+                    <table class="table mx-auto my-4 w-75">
+                        <tbody>
+                            <tr>
+                                <b>Version 1.3.3 : June, 2020</b>
+                                <ul>
+                                    <li>UI fixes.</li>
+                                </ul>
+                            </tr>
+                            <tr>
+                                <b>Version 1.3.0</b>
+                                <ul>
+                                    <li>Added support for schemes other than 'http(s)://'.</li>
+                                    <li>Users can now add aliases for chrome urls like 'chrome://extensions',
+                                        'file://filepath', etc.</li>
+                                </ul>
+                            </tr>
+                            <tr>
+                                <b>Version 1.2.5</b>
+                                <ul>
+                                    <li>Minor bugfixes.</li>
+                                </ul>
+                            </tr>
+                            <tr>
+                                <b>Version 1.2.0</b>
+                                <ul>
+                                    <li>[Major Bugfix] Fixed inconsistency in redirection issue.</li>
+                                </ul>
+                            </tr>
+                            <tr>
+                                <b>Version 1.1.0</b>
+                                <ul>
+                                    <li>Added support for syncing aliases with Google Account.</li>
+                                </ul>
+                            </tr>
+                            <tr>
+                                <b>Version 1.0.5</b>
+                                <ul>
+                                    <li>Enhanced redirection. Made it simpler and faster.</li>
+                                </ul>
+                            </tr>
+                            <tr>
+                                <b>Version 1.0.4</b>
+                                <ul>
+                                    <li>Added support for placeholders.</li>
+                                </ul>
+                            </tr>
+                            <tr>
+                                <b>Version 1.0.1 : July, 2019 *Initial Release*</b>
+                                <ul>
+                                    <li>Supports aliasing of URLs [base feature]</li>
+                                </ul>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <div id="footer" class="container shadow-lg my-4">

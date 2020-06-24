@@ -35,6 +35,16 @@ th, td{
     transition-duration: 0.5s;
 }
 
+#release-notes{
+    box-sizing: border-box;
+    height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 5px;
+    transition-duration: 0.5s;
+}
+
 #footer{
     background-color: white;
     border-radius: 5px;
