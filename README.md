@@ -9,13 +9,16 @@ Bored of typing those long URLs again and again? Get rid of it with this extensi
 
 After adding the extension to Google Chrome, navigate to 'Options' after clicking the URL Aliaser icon right near the address bar for the usage instructions and managing aliases.
 
+
 ## Features
 
 * Support for multiple placeholders for easier navigation.
 * Sync with Google Account to use on all signed-in devices.
 
-## Screenshot (+Usage)
+
+## Usage
 ![](./images/Screenshot-new.png)
+
 
 ## Built With
 
@@ -23,9 +26,11 @@ After adding the extension to Google Chrome, navigate to 'Options' after clickin
 * Javascript
 * HTML and CSS
 
+
 ## Author
 
-* [**ShivanshRakesh**](https://github.com/ShivanshRakesh)
+* [**Shivansh Rakesh**](https://shivanshrakesh.github.io)
+
 
 ## Contributing
 Pull requests are welcomed. For major changes, please open an issue first to discuss what you would like to change.
