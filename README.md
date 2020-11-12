@@ -14,12 +14,9 @@ After adding the extension to Google Chrome, navigate to 'Options' after clickin
 * Support for multiple placeholders for easier navigation.
 * Sync with Google Account to use on all signed-in devices.
 
-## Usasge
-
-![](./images/usage_instructions.png)
-
-## Screenshot
+## Screenshot (+Usage)
 ![](./images/Screenshot-new.png)
+
 ## Built With
 
 * [jQuery](https://api.jquery.com/)
