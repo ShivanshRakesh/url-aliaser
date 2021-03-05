@@ -16,7 +16,7 @@ After adding the extension to Google Chrome, navigate to 'Options' after clickin
 * Sync with Google Account to use on all signed-in devices.
 
 
-## Usage
+## Screenshot (contains Usage)
 ![](./images/Screenshot-new.png)
 
 
