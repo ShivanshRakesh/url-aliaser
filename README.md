@@ -3,7 +3,7 @@
 A Chrome Extension which gives alias to website URLs.
 
 _Click on the icon below to download:_ \
-[![Go to Download Page!](https://developer.chrome.com/webstore/images/ChromeWebStore_Badge_v2_340x96.png)](https://chrome.google.com/webstore/detail/url-aliaser/dpmjkbfpciagadmabadpflnhlkhcaaii)
+[![](https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/mPGKYBIR2uCP0ApchDXE.png)](https://chrome.google.com/webstore/detail/url-aliaser/dpmjkbfpciagadmabadpflnhlkhcaaii)
 
 Bored of typing those long URLs again and again? Get rid of it with this extension. Add aliases for frequently visited websites and save time!
 
