@@ -5,9 +5,9 @@ A Chrome Extension which gives alias to website URLs.
 _Click on the icon below to download:_ \
 [![](https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/mPGKYBIR2uCP0ApchDXE.png)](https://chrome.google.com/webstore/detail/url-aliaser/dpmjkbfpciagadmabadpflnhlkhcaaii)
 
-Bored of typing those long URLs again and again? Get rid of it with this extension. Add aliases for frequently visited websites and save time!
+Tired of typing those long URLs again and again? Get rid of it with this Chrome Extension! Add aliases for frequently visited websites and save time.
 
-After adding the extension to Google Chrome, navigate to 'Options' after clicking the URL Aliaser icon right near the address bar for the usage instructions and managing aliases.
+After adding the extension to Google Chrome, navigate to '**Options**' after clicking the URL Aliaser icon right near the address bar for the usage instructions and managing aliases.
 
 
 ## Features
@@ -22,14 +22,13 @@ After adding the extension to Google Chrome, navigate to 'Options' after clickin
 
 ## Built With
 
-* [jQuery](https://api.jquery.com/)
-* Javascript
+* [jQuery](https://api.jquery.com/), Javascript
 * HTML and CSS
 
 
 ## Author
 
-* [**Shivansh Rakesh**](https://shivanshrakesh.github.io)
+[**Shivansh Rakesh**](https://shivanshrakesh.github.io)
 
 
 ## Contributing
